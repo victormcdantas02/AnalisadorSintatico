@@ -12,6 +12,12 @@ public class Main {
 
         AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
 
-        analisador.analisar();
+        // Adicionei um try-catch para capturar exceções durante a análise
+        try {
+            analisador.analisar();
+            System.out.println("Análise sintática concluída sem erros.");
+        } catch (RuntimeException e) {
+            System.out.println("Erro durante a análise sintática: " + e.getMessage());
+        }
     }
 }
